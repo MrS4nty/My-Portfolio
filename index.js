@@ -1,12 +1,11 @@
-var express = require('express'),
-const PORT = process.env.PORT || 8080 || 5000 || 3000
-var startedxd = require('./index.html')
+var express = require('express');
+var path = require('path');
+const PORT = process.env.PORT || 5000;
+var app = express();
 
+// deliver index.html if no file is requested
+app.get("/", function (request, response) {
+  response.sendFile(path.join(__dirname, 'index.html'));
+});
 
-var app = express()
-app.enable('trust proxy');
-app.use('/start', startedxd)
-
-app.listen(PORT, (req, res) => {
-    res.sendFile(startedxd)
-})
+app.listen(PORT);
