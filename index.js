@@ -7,6 +7,6 @@ var app = express()
 app.enable('trust proxy');
 app.use('/start', startedxd)
 
-app.listen(PORT, () => {
-    console.log(color("Server running on port " + PORT,'green'))
+app.listen(PORT, (req, res) => {
+    res.sendFile(startedxd)
 })
