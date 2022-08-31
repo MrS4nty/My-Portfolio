@@ -1,1 +1,1 @@
-$fp = fopen("index.html", "r");
+print_r(file("./index.html"));
